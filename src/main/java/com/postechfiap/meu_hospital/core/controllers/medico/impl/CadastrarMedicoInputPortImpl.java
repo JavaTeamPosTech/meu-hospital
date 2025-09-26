@@ -12,7 +12,7 @@ public class CadastrarMedicoInputPortImpl implements CadastrarMedicoInputPort {
 
     @Override
     public void execute(CadastrarMedicoInputModel input){
-
+        cadastrarMedicoUseCase.execute(input);
     }
 
 }
