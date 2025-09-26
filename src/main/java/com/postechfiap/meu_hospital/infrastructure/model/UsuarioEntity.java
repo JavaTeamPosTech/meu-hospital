@@ -32,7 +32,6 @@ public class UsuarioEntity implements UserDetails {
     @Column(name =  "id", columnDefinition = "uuid", updatable = false, nullable = false)
     private UUID id;
 
-    @Setter
     private String nome;
 
     @Setter
