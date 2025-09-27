@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -39,7 +40,7 @@ public class UsuarioEntity implements UserDetails {
     private String email;
 
     @Column(name = "data_nascimento")
-    private LocalDateTime dataNascimento;
+    private LocalDate dataNascimento;
 
     @Setter
     @Column(unique = true, length = 11)
@@ -57,7 +58,7 @@ public class UsuarioEntity implements UserDetails {
     @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 
-  public UsuarioEntity(String nome, String email, String login, String senha, LocalDateTime dataNascimento, String cpf) {
+  public UsuarioEntity(String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf) {
       this.nome = nome;
       this.email = email;
       this.login = login;
@@ -66,7 +67,7 @@ public class UsuarioEntity implements UserDetails {
       this.cpf = cpf;
   }
 
-  public UsuarioEntity(UUID id, String nome, String email, String login, String senha, LocalDateTime dataNascimento, String cpf) {
+  public UsuarioEntity(UUID id, String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf) {
       this.id = id;
       this.nome = nome;
       this.email = email;
