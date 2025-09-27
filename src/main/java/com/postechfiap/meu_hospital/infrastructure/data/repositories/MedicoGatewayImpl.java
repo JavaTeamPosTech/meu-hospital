@@ -7,6 +7,9 @@ import com.postechfiap.meu_hospital.infrastructure.model.MedicoEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Component
 @RequiredArgsConstructor
 public class MedicoGatewayImpl implements MedicoGateway {
@@ -19,6 +22,12 @@ public class MedicoGatewayImpl implements MedicoGateway {
         MedicoEntity medicoEntity = medicoDataMapper.toEntity(medicoDomain);
         MedicoEntity savedEntity = medicoSpringRepository.save(medicoEntity);
         return medicoDataMapper.toDomain(savedEntity);
+    }
+
+    @Override
+    public Optional<MedicoDomain> buscarPorId(UUID id) {
+        Optional<MedicoEntity> medicoEntityOptional = medicoSpringRepository.findById(id);
+        return medicoEntityOptional.map(medicoDataMapper::toDomain);
     }
 
 }
