@@ -1,5 +1,6 @@
 package com.postechfiap.meu_hospital.infrastructure.api.handlers;
 
+import com.postechfiap.meu_hospital.core.exceptions.BusinessException;
 import com.postechfiap.meu_hospital.core.exceptions.ResourceNotFoundException;
 import com.postechfiap.meu_hospital.infrastructure.api.dtos.response.ExcecaoDTO;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,14 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ExcecaoDTO> handleResourceNotFoundException(ResourceNotFoundException e){
         int status = HttpStatus.NOT_FOUND.value();
+        ExcecaoDTO excecaoDTO = new ExcecaoDTO(e.getMessage(), status);
+
+        return ResponseEntity.status(status).body(excecaoDTO);
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ExcecaoDTO> handleBusinessException(BusinessException e){
+        int status = HttpStatus.BAD_REQUEST.value();
         ExcecaoDTO excecaoDTO = new ExcecaoDTO(e.getMessage(), status);
 
         return ResponseEntity.status(status).body(excecaoDTO);
