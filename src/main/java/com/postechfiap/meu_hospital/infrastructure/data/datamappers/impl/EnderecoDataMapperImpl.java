@@ -17,7 +17,7 @@ public class EnderecoDataMapperImpl implements EnderecoDataMapper {
         }
 
         return new EnderecoEntity(enderecoDomain.getEstado(), enderecoDomain.getCidade(), enderecoDomain.getBairro(),
-                enderecoDomain.getRua(), enderecoDomain.getNumero(), enderecoDomain.getComplemento(), enderecoDomain.getCep(), null);
+                enderecoDomain.getRua(), enderecoDomain.getNumero(), enderecoDomain.getComplemento(), enderecoDomain.getCep());
     }
 
 
@@ -28,6 +28,6 @@ public class EnderecoDataMapperImpl implements EnderecoDataMapper {
         }
 
         return new EnderecoDomain(enderecoEntity.getEstado(), enderecoEntity.getCidade(), enderecoEntity.getBairro(),
-                enderecoEntity.getRua(), enderecoEntity.getNumero(), enderecoEntity.getComplemento(), enderecoEntity.getCep(), null );
+                enderecoEntity.getRua(), enderecoEntity.getNumero(), enderecoEntity.getComplemento(), enderecoEntity.getCep());
     }
 }

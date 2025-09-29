@@ -28,7 +28,7 @@ public class EnderecoEntity {
     private UsuarioEntity usuario;
 
     public EnderecoEntity(String estado, String cidade, String bairro, String rua, Integer numero, String complemento,
-                          String cep, UsuarioEntity usuario) {
+                          String cep) {
         this.estado = estado;
         this.cidade = cidade;
         this.bairro = bairro;
@@ -36,6 +36,6 @@ public class EnderecoEntity {
         this.numero = numero;
         this.complemento = complemento;
         this.cep = cep;
-        this.usuario = usuario;
+//        this.usuario = usuario;
     }
 }

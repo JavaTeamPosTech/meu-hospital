@@ -55,6 +55,11 @@ public record CadastrarMedicoRequestDTO(
         @DecimalMin(value = "0.01", message = "Salário deve ser maior que zero")
         BigDecimal salario,
 
+        @Schema(description = "Telefone do médico (apenas números, com ou sem DDI). Precisa estar preenchido.", example = "5581999992345")
+        @Pattern(regexp = "^\\+?\\d{8,15}$", message = "Número de telefone inválido")
+        @NotBlank(message = "Telefone é obrigatório")
+        String telefone,
+
         @Schema(description = "Endereço do médico. Precisa estar preenchido.", minLength = 1)
         @NotNull(message = "O endereço não pode ser nulo")
         @Valid
@@ -67,7 +72,7 @@ public record CadastrarMedicoRequestDTO(
         EnderecoInputModel enderecoInputModel = endereco.toInputModel();
 
         return new  CadastrarMedicoInputModel(
-                nome, email, login, senha, dataNascimento, cpf, crm, salario, enderecoInputModel
+                nome, email, login, senha, dataNascimento, cpf, crm, salario, telefone, enderecoInputModel
         );
     }
 }

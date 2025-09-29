@@ -19,7 +19,7 @@ public class EnderecoDomain {
 
 
     public EnderecoDomain(String estado, String cidade, String bairro, String rua, Integer numero, String complemento,
-                          String cep, UsuarioDomain usuario) {
+                          String cep) {
         this.estado = estado;
         this.cidade = cidade;
         this.bairro = bairro;
@@ -27,6 +27,6 @@ public class EnderecoDomain {
         this.numero = numero;
         this.complemento = complemento;
         this.cep = cep;
-        this.usuario = usuario;
+//        this.usuario = usuario;
     }
 }

@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor
@@ -17,14 +17,15 @@ import java.time.LocalDateTime;
 @PrimaryKeyJoinColumn(name = "id")
 public class MedicoEntity extends UsuarioEntity {
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String crm;
 
-    @Column(precision = 10, scale = 2, nullable = false)
+    @Column(precision = 10, scale = 2, nullable = false, name = "salario_por_hora")
     private BigDecimal salario;
 
-    public MedicoEntity(String nome, String email, String login, String senha, LocalDateTime dataNascimento, String cpf, String crm, BigDecimal salario) {
-        super(nome,  email, login, senha, dataNascimento, cpf);
+    public MedicoEntity(String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf,
+                        String crm, BigDecimal salario, EnderecoEntity endereco) {
+        super(nome,  email, login, senha, dataNascimento, cpf, endereco);
         this.crm = crm;
         this.salario = salario;
     }
