@@ -29,4 +29,18 @@ public class EnderecoDomain {
         this.cep = cep;
 //        this.usuario = usuario;
     }
+
+    public EnderecoDomain(UUID id, String estado, String cidade, String bairro, String rua, Integer numero, String complemento,
+                          String cep) {
+        this.id = id;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.rua = rua;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.cep = cep;
+    }
+
+
 }
