@@ -30,7 +30,7 @@ public class UsuarioEntity implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name =  "id", columnDefinition = "uuid", updatable = false, nullable = false)
+    @Column(name = "id", columnDefinition = "uuid", updatable = false, nullable = false)
     private UUID id;
 
     private String nome;
@@ -58,29 +58,34 @@ public class UsuarioEntity implements UserDetails {
     @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 
+    @Column(name = "telefone", length = 15)
+    private String telefone;
+
 
     @OneToOne(mappedBy = "usuario", optional = false)
     private EnderecoEntity endereco;
 
-  public UsuarioEntity(String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf,
-                       EnderecoEntity endereco) {
-      this.nome = nome;
-      this.email = email;
-      this.login = login;
-      this.senha = senha;
-      this.dataNascimento = dataNascimento;
-      this.cpf = cpf;
-  }
+    public UsuarioEntity(String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf,
+                         String telefone, EnderecoEntity endereco) {
+        this.nome = nome;
+        this.email = email;
+        this.login = login;
+        this.senha = senha;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.endereco = endereco;
+    }
 
-  public UsuarioEntity(UUID id, String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf) {
-      this.id = id;
-      this.nome = nome;
-      this.email = email;
-      this.login = login;
-      this.senha = senha;
-      this.dataNascimento = dataNascimento;
-      this.cpf = cpf;
-  }
+    public UsuarioEntity(UUID id, String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.login = login;
+        this.senha = senha;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+    }
 
     public void atualizarSenha(String senha) {
         this.senha = senha;

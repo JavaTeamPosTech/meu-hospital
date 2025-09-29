@@ -69,4 +69,17 @@ public class UsuarioDomain {
 
     }
 
+    public UsuarioDomain(UUID id, String nome, String telefone,  String email, LocalDate dataNascimento, String cpf,
+                         String login, String senha) {
+        this.id = id;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
+        this.cpf = cpf;
+        this.login = login;
+        this.senha = senha;
+    }
+
+
 }

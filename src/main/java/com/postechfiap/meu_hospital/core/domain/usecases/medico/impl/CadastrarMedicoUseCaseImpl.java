@@ -61,6 +61,8 @@ public class CadastrarMedicoUseCaseImpl implements CadastrarMedicoUseCase {
                 enderecoDomain
         );
 
+        MedicoDomain medicoSalvo = medicoGateway.cadastrarMedico(novoMedico);
+        medicoOutputPort.presentSuccess(medicoSalvo);
 
         return null;
     }

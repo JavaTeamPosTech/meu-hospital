@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Getter
 public class MedicoDomain extends UsuarioDomain {
@@ -32,4 +33,14 @@ public class MedicoDomain extends UsuarioDomain {
         this.salario = salario;
         this.endereco = endereco;
     }
+
+    public MedicoDomain(UUID id, String nome, String telefone,  String email, LocalDate dataNascimento, String cpf,
+                        String login, String senha, String crm, BigDecimal salario, EnderecoDomain endereco ){
+        super(id, nome, telefone, email, dataNascimento, cpf, login, senha);
+
+        this.crm = crm;
+        this.salario = salario;
+        this.endereco = endereco;
+    }
+
 }
