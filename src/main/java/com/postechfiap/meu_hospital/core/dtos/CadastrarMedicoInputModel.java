@@ -24,14 +24,19 @@ public class CadastrarMedicoInputModel {
 
     private BigDecimal salario;
 
-    public CadastrarMedicoInputModel(String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf, BigDecimal salario) {
+    private EnderecoInputModel endereco;
+
+    public CadastrarMedicoInputModel(String nome, String email, String login, String senha, LocalDate dataNascimento,
+                                     String cpf, String crm, BigDecimal salario, EnderecoInputModel enderecoDomain) {
         this.nome = nome;
         this.email = email;
         this.login = login;
         this.senha = senha;
         this.dataNascimento = dataNascimento;
         this.cpf = cpf;
+        this.crm = crm;
         this.salario = salario;
+        this.endereco = enderecoDomain;
     }
 
 }

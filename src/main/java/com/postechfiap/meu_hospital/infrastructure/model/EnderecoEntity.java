@@ -23,7 +23,7 @@ public class EnderecoEntity {
     private Integer numero;
     private String complemento;
     private String cep;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
     private UsuarioEntity usuario;
 

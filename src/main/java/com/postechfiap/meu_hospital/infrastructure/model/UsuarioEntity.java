@@ -58,7 +58,12 @@ public class UsuarioEntity implements UserDetails {
     @Column(name = "data_criacao")
     private LocalDateTime dataCriacao;
 
-  public UsuarioEntity(String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf) {
+
+    @OneToOne(mappedBy = "usuario", optional = false)
+    private EnderecoEntity endereco;
+
+  public UsuarioEntity(String nome, String email, String login, String senha, LocalDate dataNascimento, String cpf,
+                       EnderecoEntity endereco) {
       this.nome = nome;
       this.email = email;
       this.login = login;
