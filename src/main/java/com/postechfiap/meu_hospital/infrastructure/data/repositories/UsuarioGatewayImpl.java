@@ -8,7 +8,6 @@ import com.postechfiap.meu_hospital.infrastructure.model.UsuarioEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.security.PublicKey;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -46,4 +45,16 @@ public class UsuarioGatewayImpl implements UsuarioGateway {
 
         return null;
     }
+
+    @Override
+    public boolean existsByCpf(String cpf) {
+        if(cpf == null){
+            throw new IllegalArgumentException("Cpf do usuário não pode ser nulo.");
+        }
+
+        Optional<UsuarioEntity> usuarioEntityOptional = usuarioSpringRepository.findByCpf(cpf);
+
+        return usuarioEntityOptional.isPresent();
+    }
+
 }

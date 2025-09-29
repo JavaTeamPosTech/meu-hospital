@@ -11,4 +11,6 @@ public interface UsuarioGateway {
     boolean existsByEmail(String email);
 
     Optional<UsuarioDomain> buscarPorId(UUID id);
+
+    boolean existsByCpf(String cpf);
 }
